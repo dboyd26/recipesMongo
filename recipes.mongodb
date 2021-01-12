@@ -1,0 +1,106 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+const recipesArr = 
+[
+  {
+    "recipeName": "Ramen",
+    "recipeDesc": "Bowl of hot ramen",
+    "instructions": "Boil 2 cups of water. Add block of noodles, 1/2 of mixed vegetable, and 1 season packet.",
+    "ingredients": [
+      {
+        "ingredientName": "noodles",
+        "measure": "block",
+        "qty": 1
+      },
+      {
+        "ingredientName": "season packet",
+        "measure": "packet",
+        "qty": 1
+      },
+      {
+        "ingredientName": "mixed vegetables",
+        "measure": "cup",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "recipeName": "peanut butter and jelly",
+    "recipeDesc": "a tasty peanut butter and jelly sandwich",
+    "instructions": "take two slices of bread and add 3 tablespoons of peanut butter to 1 slice and 4 tablespoons of jelly to the other slice. combine slices together, with peanut side facing jelly side.",
+    "ingredients": [
+      {
+        "ingredientName": "bread",
+        "measure": "slice",
+        "qty": 2
+      },
+      {
+        "ingredientName": "Peanut butter",
+        "measure": "tablespoon",
+        "qty": 3
+      },
+      {
+        "ingredientName": "Jelly",
+        "measure": "tablespoon",
+        "qty": 4
+      },
+      
+    ]
+  },
+  {
+    "recipeName": "Cereal",
+    "recipeDesc": "A lightly sweeten bowl of Rice Krispies.",
+    "instructions": "Pour one cup of Rice Krispies into a bowl. Add 3 teaspoons of sugar and 1 cup of milk.",
+    "ingredients": [
+      {
+        "ingredientName": "Rice Krispies Cereal",
+        "measure": "cup",
+        "qty": 1
+      },
+      {
+        "ingredientName": "Milk",
+        "measure": "cup",
+        "qty": 1
+      },
+      {
+        "ingredientName": "Sugar",
+        "measure": "teaspoon",
+        "qty": 3
+      },
+      
+    ]
+  }
+]
+
+// Select the database to use.
+use('mongodbVSCodePlaygroundDB');
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against proper database and collection.
+db.recipes.drop();
+db.recipes.insertMany(recipesArr);
+
+db.recipes.find();
+db.recipes.find({"ingredients.ingredientName": "Rice Krispies Cereal"});
+
+
+
+db.recipes.updateOne({recipeName : "Cereal"},
+{
+  $set: { "recipeName": "Cruncy Cereal"}
+
+}
+);
+
+
+
+
+// Insert a few documents into the sales collection.
+
+
+// Run a find command to view items sold on April 4th, 2014.
+
+
+db.recipes.find();
